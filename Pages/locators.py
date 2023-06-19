@@ -1,9 +1,11 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators():
+class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-class LoginPageLocators():
+
+
+class LoginPageLocators:
     LOGIN_URL = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
     LOGIN_FIELD = (By.NAME, "login-username")
     PASSWD_LOG_FIELD = (By.NAME, "login-password")
@@ -14,3 +16,11 @@ class LoginPageLocators():
     REGISTRATION_BUTTON = (By.NAME, "registration_submit")
     LOGIN_FORM = (By.ID, "login_form")
     REGISTRATION_FORM = (By.ID, "register_form")
+
+
+class ProductPageLocators:
+    ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, "#add_to_basket_form > button")
+    ADD_TO_CART_MESSAGE = (By.CLASS_NAME,"alertinner")
+    ADD_TO_CART_PRICE_MESSAGE = (By.CSS_SELECTOR,"#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > p:nth-child(1) > strong")
+    PRODUCT_NAME = (By.CSS_SELECTOR,"#content_inner > article > div.row > div.col-sm-6.product_main > h1")
+    PRODUCT_PRICE = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color")
