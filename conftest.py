@@ -8,7 +8,7 @@ def pytest_addoption(parser):
 def browser():
     browser = webdriver.Chrome()
     yield browser
-    time.sleep(30)
+    time.sleep(5)
     print("\nquit browser..")
     browser.quit()
 @pytest.fixture(scope="function")
