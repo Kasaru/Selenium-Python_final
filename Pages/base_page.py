@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from Pages.locators import ProductPageLocators
+from Pages.locators import ProductPageLocators, BasePageLocators
 
 
 class BasePage:
@@ -48,3 +48,10 @@ class BasePage:
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+        return BasePage(browser=self.browser, url=self.browser.current_url)
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
