@@ -9,7 +9,7 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        assert "login" in LoginPageLocators.LOGIN_URL,"Not login URL"
+        assert "login" in LoginPageLocators.LOGIN_URL, "Not login URL"
         assert True
 
     def should_be_login_form(self):
@@ -27,14 +27,14 @@ class LoginPage(BasePage):
         assert LoginPageLocators.REGISTRATION_BUTTON, "Registration button not found"
         assert True
 
-    def register_new_user(self,email, password):
+    def register_new_user(self, email, password):
         print(f"email - {email}")
         print(f"password - {password}")
-        EMAIL_FIELD = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL_FIELD)
-        EMAIL_FIELD.send_keys(email)
-        PASS_FIELD = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWD_FIELD)
-        PASS_FIELD.send_keys(password)
-        REP_PASS_FIELD = self.browser.find_element(*LoginPageLocators.REGISTRATION_REPEAT_PASSWD_FIELD)
-        REP_PASS_FIELD.send_keys(password)
-        BUTTON = self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON)
-        BUTTON.click()
+        email_field = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL_FIELD)
+        email_field.send_keys(email)
+        pass_field = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWD_FIELD)
+        pass_field.send_keys(password)
+        rep_pass_field = self.browser.find_element(*LoginPageLocators.REGISTRATION_REPEAT_PASSWD_FIELD)
+        rep_pass_field.send_keys(password)
+        button = self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON)
+        button.click()

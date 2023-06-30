@@ -1,7 +1,5 @@
-#pytest -v -s --tb=line --language=en test_product_page.py
 from .base_page import BasePage
 from .locators import ProductPageLocators
-
 
 
 class ProductPage(BasePage):
@@ -20,8 +18,13 @@ class ProductPage(BasePage):
         assert price.text == message_price.text, "price is not equal"
 
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        assert self.is_not_element_present(
+            *ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+
     def should_not_be_success_message_disappeared(self):
-        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        assert self.is_disappeared(
+            *ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+
     def should_be_success_message(self):
-        assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not presented, but should be"
+        assert self.is_element_present(
+            *ProductPageLocators.SUCCESS_MESSAGE), "Success message is not presented, but should be"
