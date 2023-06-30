@@ -26,3 +26,15 @@ class LoginPage(BasePage):
         assert LoginPageLocators.REGISTRATION_REPEAT_PASSWD_FIELD, "Registration repeat password field not found"
         assert LoginPageLocators.REGISTRATION_BUTTON, "Registration button not found"
         assert True
+
+    def register_new_user(self,email, password):
+        print(f"email - {email}")
+        print(f"password - {password}")
+        EMAIL_FIELD = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL_FIELD)
+        EMAIL_FIELD.send_keys(email)
+        PASS_FIELD = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWD_FIELD)
+        PASS_FIELD.send_keys(password)
+        REP_PASS_FIELD = self.browser.find_element(*LoginPageLocators.REGISTRATION_REPEAT_PASSWD_FIELD)
+        REP_PASS_FIELD.send_keys(password)
+        BUTTON = self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON)
+        BUTTON.click()

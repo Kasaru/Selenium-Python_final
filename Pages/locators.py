@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-
 class MainPageLocators:
     LOGIN_LINK = (By.ID, "registration_link")
 
@@ -22,6 +21,8 @@ class LoginPageLocators:
     REGISTRATION_BUTTON = (By.NAME, "registration_submit")
     LOGIN_FORM = (By.ID, "login_form")
     REGISTRATION_FORM = (By.ID, "register_form")
+    #email = str(time.time()) + "@fakemail.org"
+    #password = str(time.time()) + "passwd"
 
 
 class ProductPageLocators:
@@ -33,5 +34,6 @@ class ProductPageLocators:
     SUCCESS_MESSAGE = (By.CLASS_NAME,"alertinner")
 
 class BasePageLocators():
-    LOGIN_LINK = (By.ID, "registration_link")
+    LOGIN_LINK = (By.ID, "login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
